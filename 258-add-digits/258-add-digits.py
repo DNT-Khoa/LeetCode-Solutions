@@ -8,6 +8,16 @@ class Solution:
             num = total 
         
         return num
+    
+    
+"""
+Another creative solution:
+    def addDigits(self, num):
+        if num == 0:
+            return 0
+        else:
+            return 9 if num % 9 == 0 else num % 9
+"""
                 
             
             
