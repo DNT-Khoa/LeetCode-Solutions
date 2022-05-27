@@ -15,7 +15,7 @@ class Solution:
         """
         sub_sum = self.sub_add_digits(num)
         
-        if sub_sum // 10 == 0:
+        if sub_sum < 10:
             return sub_sum
         
         return self.addDigits(sub_sum)
