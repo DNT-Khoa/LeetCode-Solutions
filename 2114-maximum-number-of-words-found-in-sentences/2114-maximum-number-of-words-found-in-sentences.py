@@ -6,3 +6,5 @@ class Solution:
             max_counter = max(max_counter, len(s.split()))
             
         return max_counter
+    
+# Time complexity O(n)
