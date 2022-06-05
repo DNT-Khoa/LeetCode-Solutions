@@ -11,3 +11,4 @@ class Solution:
                 
         return (a - 1) * (b - 1)
         
+# Time complexity O(n)
