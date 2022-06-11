@@ -4,3 +4,6 @@ class Solution:
         k = k % n
         
         nums[:] = nums[n-k:n] + nums[0:n-k]
+        
+        
+# Time complexity O(n)
