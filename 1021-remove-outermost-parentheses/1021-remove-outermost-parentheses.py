@@ -15,4 +15,6 @@ class Solution:
                     c_list.append(c)
                     
         return "".join(c_list)
-            
+    
+    
+# Time complexity: O(n)
