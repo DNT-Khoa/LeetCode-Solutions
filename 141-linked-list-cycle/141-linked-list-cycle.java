@@ -11,7 +11,7 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        // Floyd cycle loop dectection
+        // Floyd cycle dectection
         ListNode slowP = head, fastP = head;
         
         while (slowP != null && fastP != null && fastP.next != null) {
