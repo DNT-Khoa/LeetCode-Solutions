@@ -25,3 +25,6 @@ public class Solution {
         return null;
     }
 }
+
+// Time complextiy: O(n)
+// Splace complexity: O(n)
