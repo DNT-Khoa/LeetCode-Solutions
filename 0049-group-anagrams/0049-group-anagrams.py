@@ -13,3 +13,4 @@ class Solution:
             res[k].append(s)
         
         return res.values()
+    # Time complexity is O(n * m * 26) where n is the length of strs and m is the length of each word in strs
