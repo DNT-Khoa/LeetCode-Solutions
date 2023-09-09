@@ -16,8 +16,10 @@ class Solution:
         my_heap = [(-value, key) for key, value in my_dict.items()]
         heapq.heapify(my_heap)
         
+        # Each pop in heap takes logn and we loop k times => O(k * logn)
         for i in range(k):
             res.append(heapq.heappop(my_heap)[1])
             
         return res
         
+        ### Time complexity: O(nlogn)
