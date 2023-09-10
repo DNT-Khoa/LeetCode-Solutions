@@ -2,27 +2,19 @@ from functools import reduce
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        prefix_arr, suffix_arr = [], []
+        N = len(nums)
+        left, right = [1] * N, [1] * N
         
-        # Fill prefix array
-        prod = 1
-        for i, n in enumerate(nums):
-            if i == 0:
-                pass
-            else:
-                prod *= nums[i - 1]
-            prefix_arr.append(prod)
-            
-        # Fill suffix array
-        prod = 1
-        for i, n in reversed(list(enumerate(nums))):
-            if i == len(nums) - 1:
-                pass
-            else:
-                prod *= nums[i + 1]
-            suffix_arr = [prod] + suffix_arr
-            
-        for i in range(len(nums)):
-            nums[i] = prefix_arr[i] * suffix_arr[i]
+        # Fill left array
+        for i in range(1, N):
+            left[i] = left[i - 1] * nums[i - 1]
         
+        # Fill right array
+        for i in range(N - 2, -1, -1):
+            right[i] = right[i + 1] * nums[i + 1]
+        
+        # Another loop
+        for i in range(N):
+            nums[i] = left[i] * right[i]
+            
         return nums
