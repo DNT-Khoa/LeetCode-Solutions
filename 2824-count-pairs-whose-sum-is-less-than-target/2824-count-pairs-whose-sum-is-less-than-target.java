@@ -1,3 +1,5 @@
+import java.util.Collections;
+
 class Solution {
     public int countPairs(List<Integer> nums, int target) {
         int n = nums.size();
@@ -5,26 +7,22 @@ class Solution {
             return 0;
         }
         
-        int counter = 0;
-        int left = 0, right = 1;
+        // Sort the list => O(nlogn)
+        Collections.sort(nums);
         
-        while (left < n - 1) {
+        int left = 0, right = n - 1;
+        int counter = 0;
+        
+        while (left < right) {
             int total = nums.get(left) + nums.get(right);
-            
-            if (total < target) {
-                counter++;
-            }
-            
-            right++;
-            
-             if (right == n) {
+            if (total >= target) {
+                right--;
+            } else {
+                counter += right - left;
                 left++;
-                right = left + 1;
             }
         }
         
         return counter;
-        
-        // Time complexity: O(n2)
     }
 }
