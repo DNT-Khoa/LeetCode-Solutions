@@ -24,5 +24,7 @@ class Solution {
         }
         
         return counter;
+        
+        // Time complexity: O(n2)
     }
 }
