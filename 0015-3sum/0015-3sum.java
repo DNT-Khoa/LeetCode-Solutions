@@ -34,6 +34,7 @@ class Solution {
                 }
             }
             
+            // skip duplicated nums at i 
             while (i + 1 < n && nums[i] == nums[i + 1]) {
                 i++;
             }
