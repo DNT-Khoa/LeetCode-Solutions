@@ -4,32 +4,20 @@ class Solution {
         
         // fill the stack with number
         for (String token : tokens) {
-            // if token is an operand
-            if (
-                !token.equals("+") &&
-                !token.equals("-") &&
-                !token.equals("*") &&
-                !token.equals("/")
-            ) {
-                stack.push(Integer.parseInt(token));
+            if (token.equals("+")) {
+                stack.push(stack.pop() + stack.pop());
+            } else if (token.equals("-")) {
+                int b = stack.pop();
+                int a = stack.pop();
+                stack.push(a - b);
+            } else if (token.equals("*")) {
+                stack.push(stack.pop() * stack.pop());
+            } else if (token.equals("/")) {
+                int b = stack.pop();
+                int a = stack.pop();
+                stack.push(a / b);
             } else {
-                int operand1 = stack.pop();
-                int operand2 = stack.pop();
-                int res = 0;
-                
-                if (token.equals("+")) {
-                    res = operand2 + operand1;
-                    stack.push(res);
-                } else if (token.equals("-")) {
-                    res = operand2 - operand1;
-                    stack.push(res);
-                } else if (token.equals("*")) {
-                    res = operand2 * operand1;
-                    stack.push(res);
-                } else {
-                    res = operand2 / operand1;
-                    stack.push(res);
-                }
+                stack.push(Integer.parseInt(token));
             }
         }
         
