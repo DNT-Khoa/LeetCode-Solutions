@@ -1,14 +1,13 @@
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        # Sort the array
-        nums.sort()
+        hashset = set()
         
-        for i in range(1, len(nums)):
-            if nums[i] == nums[i - 1]:
+        for num in nums:
+            if num in hashset:
                 return True
-            
+            hashset.add(num)
+        
         return False
-            
                     
                     
         
