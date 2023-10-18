@@ -5,19 +5,14 @@ class Solution:
         if len(s) != len(t):
             return False
         
-        s1_dict = defaultdict(int)
-        s2_dict = defaultdict(int)
+        countS, countT = {}, {}
         
-        for c in s:
-            s1_dict[c] += 1
+        for i in range(len(s)):
+            countS[s[i]] = countS.get(s[i], 0) + 1
+            countT[t[i]] = countT.get(t[i], 0) + 1
         
-        for c in t:
-            s2_dict[c] += 1
-    
-        for c in s1_dict:
-            if c not in s2_dict or s1_dict[c] != s2_dict[c]:
+        for c in countS:
+            if countS[c] != countT.get(c, -1):
                 return False
         
         return True
-        
-        
