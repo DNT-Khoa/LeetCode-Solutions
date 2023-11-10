@@ -22,4 +22,7 @@ class Solution {
         
         return prev;
     }
+    
+    // Time complexity: O(n)
+    // Space complexity: O(1)
 }
