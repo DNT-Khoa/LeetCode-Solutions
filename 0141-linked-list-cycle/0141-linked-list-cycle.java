@@ -11,16 +11,17 @@
  */
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        Set<ListNode> visited = new HashSet<>();
-        ListNode tail = head;
+        // Floyd-cycle detection algorithm
+        ListNode fast = head;
+        ListNode slow = head;
         
-        while(tail != null) {
-            if (visited.contains(tail)) {
-                return true;
-            } 
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
             
-            visited.add(tail);
-            tail = tail.next;
+            if (slow == fast) {
+                return true;
+            }
         }
         
         return false;
