@@ -14,6 +14,7 @@ class Solution {
         ListNode slow = start;
         ListNode fast = start.next;
         
+        // Make the distance between fast and slow n nodes apart
         for (int i = 1; i < n; i++) {
             fast = fast.next;
         }
