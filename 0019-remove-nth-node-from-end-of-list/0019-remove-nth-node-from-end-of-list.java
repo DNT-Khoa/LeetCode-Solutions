@@ -26,6 +26,7 @@ class Solution {
             slow = slow.next;
         }
         
+        // Delete the node
         if (prev == null) {
             head = slow.next;
         } else {
