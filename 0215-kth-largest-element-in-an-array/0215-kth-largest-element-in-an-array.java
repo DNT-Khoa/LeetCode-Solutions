@@ -12,4 +12,7 @@ class Solution {
         
         return maxHeap.peek();
     }
+    
+    // Time complexity: O(nlogk)
+    // Space complexity: O(n
 }
