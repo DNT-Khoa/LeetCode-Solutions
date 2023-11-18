@@ -26,12 +26,11 @@ class Solution:
         l2 = prev
         
         while l1 and l2 and l1 is not l2:
-            next1 = l1.next
-            next2 = l2.next
-            
+            next = l1.next
             l1.next = l2
-            l2.next = next1 if l2 is not next1 else None
+            l1 = l2
+            l2 = next
             
-            l1 = next1
-            l2 = next2
+            if l1 is l2:
+                l1.next = None
     
