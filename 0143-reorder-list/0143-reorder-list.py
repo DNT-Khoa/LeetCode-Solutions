@@ -12,7 +12,7 @@ class Solution:
             fast = fast.next.next
         
         middle = slow.next        
-        # Revert the nodes starting from middle node
+        # Reverse the nodes starting from middle node
         prev = None
         while middle:
             next = middle.next
@@ -24,7 +24,6 @@ class Solution:
         # Reorder list
         l1 = head
         l2 = prev
-        
         while l2:
             next1 = l1.next
             next2 = l2.next
