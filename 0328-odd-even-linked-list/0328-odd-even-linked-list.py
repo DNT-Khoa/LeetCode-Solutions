@@ -10,7 +10,7 @@ class Solution:
         
         odd = head
         even = odd.next
-        startEven = even
+        startEven = even #track the start of even ll to later link with odd ll
         
         while even and even.next:
             odd.next = odd.next.next
