@@ -26,8 +26,12 @@ class Solution:
         l2 = prev
         
         while l2:
-            next = l1.next
+            next1 = l1.next
+            next2 = l2.next
+            
             l1.next = l2
-            l1 = l2
-            l2 = next
+            l2.next = next1
+            
+            l1 = next1
+            l2 = next2
     
