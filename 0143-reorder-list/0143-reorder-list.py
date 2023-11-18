@@ -6,13 +6,12 @@
 class Solution:
     def reorderList(self, head: Optional[ListNode]) -> None:
         # Find the middle node
-        slow = fast = head
+        slow, fast = head, head.next
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
         
-        middle = slow
-        
+        middle = slow.next        
         # Revert the nodes starting from middle node
         prev = None
         while middle:
@@ -20,17 +19,15 @@ class Solution:
             middle.next = prev
             prev = middle
             middle = next
+        slow.next = None
         
         # Reorder list
         l1 = head
         l2 = prev
         
-        while l1 and l2 and l1 is not l2:
+        while l2:
             next = l1.next
             l1.next = l2
             l1 = l2
             l2 = next
-            
-            if l1 is l2:
-                l1.next = None
     
