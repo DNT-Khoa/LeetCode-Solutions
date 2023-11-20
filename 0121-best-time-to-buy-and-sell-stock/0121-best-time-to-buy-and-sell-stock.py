@@ -7,7 +7,7 @@ class Solution:
         
         while sell < len(prices):
             profit = prices[sell] - prices[buy]
-            if profit < 0:
+            if prices[sell] < prices[buy]:
                 buy = sell
                 sell += 1
             else:
