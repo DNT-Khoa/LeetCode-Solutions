@@ -4,15 +4,10 @@ class Solution:
             return 0
         counter = 0
         
-        p1 = 0
-        p2 = 1
-        p3 = 2
-        
-        while p3 < len(s):
-            if s[p1] != s[p2] and s[p2] != s[p3] and s[p1] != s[p3]:
-                counter += 1
-            p1 += 1
-            p2 += 1
-            p3 += 1
+        i = 0
+        while i+2 < len(s):
+            if s[i] != s[i+1] and s[i+1] != s[i+2] and s[i] != s[i+2]:
+                counter+=1
+            i+=1
         
         return counter
