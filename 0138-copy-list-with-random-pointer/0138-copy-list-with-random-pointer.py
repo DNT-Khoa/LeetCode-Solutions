@@ -9,7 +9,7 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        nodeMap = {}
+        nodeMap = {None: None}
         
         # Create a new node for every original node and map them
         temp = head
@@ -22,8 +22,8 @@ class Solution:
         temp = head
         while temp:
             copiedNode = nodeMap[temp]
-            copiedNode.next = nodeMap[temp.next] if temp.next else None
-            copiedNode.random = nodeMap[temp.random] if temp.random else None
+            copiedNode.next = nodeMap[temp.next]
+            copiedNode.random = nodeMap[temp.random]
             temp = temp.next
         
-        return nodeMap[head] if head else None
+        return nodeMap[head]
