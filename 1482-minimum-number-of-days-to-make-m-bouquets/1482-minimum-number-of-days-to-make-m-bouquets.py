@@ -4,19 +4,17 @@ class Solution:
             return -1
         
         def possible(waitDays):
-            l = -1
-            maxBouquet = 0
+            flowers = 0
+            bouquets = 0
             
-            for r in range(len(bloomDay)):
-                if bloomDay[r] <= waitDays:
-                    d = r - l
-                    if d == k:
-                        maxBouquet += 1
-                        l = r
+            for f in bloomDay:
+                if f > waitDays:
+                    flowers = 0
                 else:
-                    l = r
+                    bouquets += (flowers + 1) // k
+                    flowers = (flowers + 1) % k
             
-            return maxBouquet >= m
+            return bouquets >= m
         
         l, r = 1, max(bloomDay)
         while l < r:
