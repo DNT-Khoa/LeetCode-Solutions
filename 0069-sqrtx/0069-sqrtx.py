@@ -1,17 +1,14 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        l, r = 1, x
-        ans = 0
+        def isValid(n):
+            return n*n > x
         
-        while l <= r:
+        l, r = 0, x + 1
+        while l < r:
             m = l + (r - l) // 2
-            double = m*m
-            if double == x:
-                return m
-            elif double < x:
-                l = m + 1
-                ans = m
+            if isValid(m):
+                r = m
             else:
-                r = m - 1
+                l = m + 1
         
-        return ans
+        return l - 1
