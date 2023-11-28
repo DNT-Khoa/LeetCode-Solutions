@@ -17,7 +17,7 @@ class Solution:
                 if k > total:
                     k -= total
                     bucket[b].clear()
-                elif k <= total:
+                else:
                     numOfPops = k // b
                     for _ in range(numOfPops):
                         bucket[b].pop()
