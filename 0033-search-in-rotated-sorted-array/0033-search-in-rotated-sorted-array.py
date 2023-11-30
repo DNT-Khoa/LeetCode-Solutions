@@ -2,7 +2,6 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         # Find index of smallest num in the list
         l, r = 0, len(nums) - 1
-        
         while l < r:
             m = l + (r - l) // 2
             
@@ -27,7 +26,7 @@ class Solution:
         # Now find target in new range
         while l <= r:
             m = l + (r - l) // 2
-            
+
             if nums[m] == target:
                 return m
             elif nums[m] < target:
