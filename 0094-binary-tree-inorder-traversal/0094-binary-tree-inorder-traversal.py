@@ -4,10 +4,21 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import deque
 class Solution:
     def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        # Use Recursion approach
-        if not root:
-            return []
+        ans = []
+        stack = deque()
+        curr = root
         
-        return self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)
+        while curr or stack:
+            # add all left nodes of curr to the stack
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+            
+            curr = stack.pop()
+            ans.append(curr.val)
+            curr = curr.right
+        
+        return ans
