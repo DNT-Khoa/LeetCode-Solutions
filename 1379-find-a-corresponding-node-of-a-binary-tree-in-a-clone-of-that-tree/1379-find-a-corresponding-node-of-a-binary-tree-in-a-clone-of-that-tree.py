@@ -9,19 +9,10 @@ from collections import deque
 
 class Solution:
     def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
-        # Use DFS to traverse the tree
-        stack = deque()
-        stack.append(cloned)
+        if not original:
+            return None
         
-        while len(stack) > 0:
-            current = stack.pop()
-            if current.val == target.val:
-                return current
-            
-            right, left = current.right, current.left
-            if right:
-                stack.append(right)
-            if left:
-                stack.append(left)
+        if original is target:
+            return cloned
         
-        return None
+        return self.getTargetCopy(original.left, cloned.left, target) or self.getTargetCopy(original.right, cloned.right, target)
