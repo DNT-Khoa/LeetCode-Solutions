@@ -16,8 +16,10 @@ class Solution:
         queue.append(root)
         
         while queue:
-            currNodes = []            
-            for _ in range(len(queue)):
+            currNodes = []      
+            currLen = len(queue)
+    
+            for _ in range(currLen):
                 node = queue.popleft()
                 currNodes.append(node.val)
                 
