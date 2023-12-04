@@ -11,7 +11,7 @@ class Solution:
         if not root:
             return []
         
-        stack = deque()
+        ans = deque()
         queue = deque()
         queue.append(root)
         
@@ -24,13 +24,9 @@ class Solution:
                     queue.append(node.left)
                 if node.right:
                     queue.append(node.right)
-            stack.append(currNodes)
+            ans.appendleft(currNodes)
         
-        ans = []
-        while stack:
-            ans.append(stack.pop())
-        
-        return ans
+        return list(ans)
         
                 
         
