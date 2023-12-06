@@ -13,9 +13,7 @@ class Solution:
     def invert(self, node):
         if not node:
             return
-        temp = node.left
-        node.left = node.right
-        node.right = temp
+        node.left, node.right = node.right, node.left
         self.invert(node.left)
         self.invert(node.right)
         
