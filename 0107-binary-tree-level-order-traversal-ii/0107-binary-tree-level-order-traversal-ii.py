@@ -8,6 +8,7 @@ from collections import deque
 
 class Solution:
     def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
+        # Use BFS
         if not root:
             return []
         
