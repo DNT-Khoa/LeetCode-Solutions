@@ -14,18 +14,29 @@
  * }
  */
 import java.util.LinkedList;
+import java.util.Stack;
 
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new LinkedList<>();
+        Stack<TreeNode> s = new Stack<>();
+        TreeNode currNode = root;
+        boolean done = false;
         
-        if (root == null) {
-            return res;
+        while (!done) {
+            if (currNode != null) {
+                s.push(currNode);
+                currNode = currNode.left;
+            } else {
+                if (s.isEmpty()) {
+                    done = true;
+                } else {
+                    currNode = s.pop();
+                    res.add(currNode.val);
+                    currNode = currNode.right;
+                }
+            }
         }
-        
-        res.addAll(inorderTraversal(root.left));
-        res.add(root.val);
-        res.addAll(inorderTraversal(root.right));
         
         return res;
     }
